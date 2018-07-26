@@ -8,6 +8,25 @@ import org.junit.Test;
 
 public class Main {
 
+  @Test
+  public void beanStudentTest() {
+    //Instantiating a Bean
+    //Main bean = (Main) Beans.instantiate(ClassLoader.getSystemClassLoader(), "Main");
+    //Listing the property names of a Bean
+    try {
+      BeanInfo beanInfo = Introspector.getBeanInfo(BeanStudent.class);//Introspector: xem xet nội tâm.
+      PropertyDescriptor[] pDes = beanInfo.getPropertyDescriptors();
+
+      for (PropertyDescriptor propertyDescriptor : pDes) {
+        //get Property name
+        String proName = propertyDescriptor.getName();
+        System.out.println(proName);
+      }
+    } catch (IntrospectionException e) {
+      e.printStackTrace();
+    }
+  }
+
   private class BeanStudent {
 
     //@formatter:off
@@ -42,24 +61,5 @@ public class Main {
       this.age = age;
     }
     //@formatter:on
-  }
-
-  @Test
-  public void beanStudentTest() {
-    //Instantiating a Bean
-    //Main bean = (Main) Beans.instantiate(ClassLoader.getSystemClassLoader(), "Main");
-    //Listing the property names of a Bean
-    try {
-      BeanInfo beanInfo = Introspector.getBeanInfo(BeanStudent.class);//Introspector: xem xet nội tâm.
-      PropertyDescriptor[] pDes = beanInfo.getPropertyDescriptors();
-
-      for (PropertyDescriptor propertyDescriptor : pDes) {
-        //get Property name
-        String proName = propertyDescriptor.getName();
-        System.out.println(proName);
-      }
-    } catch (IntrospectionException e) {
-      e.printStackTrace();
-    }
   }
 }
