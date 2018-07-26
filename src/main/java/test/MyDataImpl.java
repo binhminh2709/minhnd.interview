@@ -2,12 +2,6 @@ package test;
 
 public class MyDataImpl implements MyData {
 
-  public boolean isNull(String str) {
-    System.out.println("Impl Null Check");
-
-    return str == null ? true : false;
-  }
-
   public static void main(String args[]) {
     /*MyDataImpl obj = new MyDataImpl();
     obj.print("");
@@ -40,5 +34,11 @@ public class MyDataImpl implements MyData {
      * so as to maintain the general contract for the hashCode method, which states that equal objects must have equal hash codes.
      * */
 
+  }
+
+  public boolean isNull(String str) {
+    System.out.println("Impl Null Check");
+
+    return str == null ? true : false;
   }
 }
